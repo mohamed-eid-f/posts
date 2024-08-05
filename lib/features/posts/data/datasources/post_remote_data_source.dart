@@ -1,11 +1,12 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
-import 'package:posts/core/errors/exceptions.dart';
-import 'package:posts/features/posts/data/models/post_model.dart';
 import 'package:http/http.dart' as http;
 
-abstract class PostRemoteDataSource {
+import '../../../../core/errors/exceptions.dart';
+import '../models/post_model.dart';
+
+abstract class PostsRemoteDataSource {
   Future<List<PostModel>> getAllPosts();
   Future<Unit> createPost(PostModel postModel);
   Future<Unit> updatePost(PostModel postModel);
@@ -14,7 +15,7 @@ abstract class PostRemoteDataSource {
 
 const BASE_URL = "https://jsonplaceholder.typicode.com";
 
-class PostRemoteDataSourceWithHttp implements PostRemoteDataSource {
+class PostRemoteDataSourceWithHttp implements PostsRemoteDataSource {
   final http.Client client;
 
   PostRemoteDataSourceWithHttp({required this.client});

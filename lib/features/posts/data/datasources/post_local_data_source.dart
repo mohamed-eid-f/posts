@@ -1,18 +1,18 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
-import 'package:posts/core/errors/exceptions.dart';
+import '../../../../core/errors/exceptions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:posts/features/posts/data/models/post_model.dart';
+import '../models/post_model.dart';
 
-abstract class PostLocalDataSource {
+abstract class PostsLocalDataSource {
   Future<List<PostModel>> getCachedPosts();
   Future<Unit> cachePosts(List<PostModel> postModels);
 }
 
 const CACHED_POSTS = 'CACHED_POSTS';
 
-class PostLocalDataSourceImpl implements PostLocalDataSource {
+class PostLocalDataSourceImpl implements PostsLocalDataSource {
   final SharedPreferences sharedPreferences;
 
   PostLocalDataSourceImpl({required this.sharedPreferences});

@@ -1,22 +1,22 @@
 import 'package:dartz/dartz.dart';
 
-import 'package:posts/core/errors/exceptions.dart';
-import 'package:posts/core/errors/failure.dart';
-import 'package:posts/core/network/internet_info.dart';
-import 'package:posts/features/posts/data/datasources/post_local_data_source.dart';
-import 'package:posts/features/posts/data/datasources/post_remote_data_source.dart';
-import 'package:posts/features/posts/data/models/post_model.dart';
-import 'package:posts/features/posts/domain/entity/post.dart';
-import 'package:posts/features/posts/domain/repositories/posts_repository.dart';
+import '../../../../core/errors/exceptions.dart';
+import '../../../../core/errors/failure.dart';
+import '../../../../core/network/internet_info.dart';
+import '../datasources/post_local_data_source.dart';
+import '../datasources/post_remote_data_source.dart';
+import '../models/post_model.dart';
+import '../../domain/entity/post.dart';
+import '../../domain/repositories/posts_repository.dart';
 
 typedef CrudFunction = Future<Unit> Function();
- 
-class PostRepositoryImpl implements PostsRepository {
-  final PostRemoteDataSource remoteDataSource;
-  final PostLocalDataSource localDataSource;
+
+class PostsRepositoryImpl implements PostsRepository {
+  final PostsRemoteDataSource remoteDataSource;
+  final PostsLocalDataSource localDataSource;
   final InternetInfo internetInfo;
 
-  PostRepositoryImpl({
+  PostsRepositoryImpl({
     required this.remoteDataSource,
     required this.localDataSource,
     required this.internetInfo,
