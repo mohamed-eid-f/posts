@@ -22,7 +22,7 @@ class PostsCrudBloc extends Bloc<PostsCrudEvent, PostsCrudState> {
     required this.createPostUsecase,
     required this.updatePostUsecase,
     required this.deletePostUsecase,
-  }) : super(PostsCrudLoadingState()) {
+  }) : super(PostsCrudInitialState()) {
     on<PostsCrudEvent>((event, emit) async {
       switch (event) {
         case CreatePostsCrudEvent():

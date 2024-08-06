@@ -7,6 +7,7 @@ sealed class PostsCrudState extends Equatable {
   List<Object> get props => [];
 }
 
+final class PostsCrudInitialState extends PostsCrudState {}
 final class PostsCrudLoadingState extends PostsCrudState {}
 
 final class PostsCrudSuccessState extends PostsCrudState {
